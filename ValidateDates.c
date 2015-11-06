@@ -1,6 +1,6 @@
 /*
  File Name: ValidateDates.c
-  
+
  Description:   
     Accept input via command-line arguments. The input will be the number
     of valid entries to be redirected from the dates input file
