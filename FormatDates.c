@@ -1,6 +1,6 @@
 /*
  File Name: FormatDates.c
-
+ 
  Description:  
     Accept the validated dates in month/day/year format and convert
     each of them to the day, abbreviated month & year format 
