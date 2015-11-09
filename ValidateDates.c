@@ -14,12 +14,15 @@
     I hereby certify that this collective work is my own
     and none of it is the work of any other person or entity.
  
- Created by Alicia Rodriguez on 11/5/15.
+ Created by Alicia Rodriguez.
 
 */
 
-#include "ValidateDates.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 
+enum months = {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC}:
 
 int main(int argc, char *argv[])
 {
