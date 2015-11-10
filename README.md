@@ -24,12 +24,14 @@ Program 2 file name: _FormatDates.c_
 Please use the following to compile (this will work on any OS):
 
 First enter this:
+
 __gcc ValidateDates.c -o main1__
 
 Then this:
+
 __gcc FormatDates.c -o main2__
 
-This will rename the files to main1 and main2 for simplicity.
+- _This will rename the files to main1 and main2 for simplicity._
 
 Please use the following to execute the program successfully:
 
