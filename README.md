@@ -33,6 +33,7 @@ __gcc FormatDates.c -o main2__
 
 - _This will rename the files to main1 and main2 for simplicity._
 
+
 Please use the following to execute the program successfully:
 
 __./main input < dates.dat | ./main2 > output.dat__
