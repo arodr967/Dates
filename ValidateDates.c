@@ -27,13 +27,11 @@
 #define ARG_NUM 2 /* Max number of arguments. The first one, argv[0], is the
                      program and the second one, argv[1] is the number which 
                      we want to read up to. */
-#define MAXDATE 1000
+#define MAXLINE 1000
 #define INPUT 1
 
-//111, 157-160, 29
-
 /* Start at 1 until 12 for each Month. */
-enum months = {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC}:
+enum months {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC};
 
 /* Prototypes */
 int getLine(char s[], int limit);
@@ -48,7 +46,7 @@ int main(int argc, char *argv[])
     
     if(argc == ARG_NUM)
     {
-        input = atoi(argv(INPUT));
+        input = atoi(argv[INPUT]);
         
         if(input <= 0) /* Input ALL valid dates */
         {
@@ -68,14 +66,39 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+/* validate function: validate the date. */
+int validate(int month, int day, int year)
+{
+    int leapYear = ((year%4 == 0 && year % 100 != 0) || year % 400 == 0); /* test for leap year */
+    
+    if((month >= 1 && month <= 12) && (day >= 1 && day <= 31))
+    {
+        if((month == JAN || month == MAR || month == MAY || month == JUL || month == AUG || month == OCT || month == DEC))
+        {
+            return TRUE;
+        }
+        if((day >= 1 && day <= 30) && (month == APR || month == JUN || month == SEP || month == NOV))
+        {
+            return TRUE;
+        }
+        
+        if( ((day >1 && day <= 28) && month == FEB && !leapYear) || ((day >1 && day <= 29) && month == FEB && leapYear))
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
+}
+
 /* getDate function: gets the dates and validates them. */
 void getDate(int month, int day, int year)
 {
-    if(scanf("%d %d %d", &month, &day, &year) == 3)
+    if(scanf("%d/%d/%d", &month, &day, &year) == 3)
     {
-        if(validate(&month, &day, &year) == TRUE)
+        if(validate(month, day, year) == TRUE)
         {
-            printf("%d %d %d", &day, &month, &year);
+            printf("%d/%d/%d\n", day, month, year);
         }
     }
 }
@@ -100,40 +123,4 @@ int getLine(char s[], int limit)
     /* Add the end of file character (null) after it is done reading */
     s[i] = '\0';
     return i;
-}
-
-
-/* validate function: validate the date. */
-int validate(int month, int day, int year)
-{
-    int leapYear = ((year%4 == 0 && year % 100 != 0) || year % 400 == 0); /* test for leap year */
-    
-    if(month >= 1 && month <= 12)
-    {
-        if(date >= 1 && date <= 31)
-        {
-            if(month == JAN || month == MAR || month == MAY || month == JUL || month == AUG || month == OCT || month == DEC)
-            {
-                return TRUE;
-            }
-        }
-        else if(date >= 1 && date <= 30)
-        {
-            if(month == APR || month = JUN || month == SEP || month == NOV)
-            {
-                return TRUE;
-            }
-        }
-        
-        else if((date >= 1 && date <= 28 && !leapYear) || (date >= 1 && date <= 29 && leapYear))
-        {
-            if(month == FEB)
-            {
-                return TRUE;
-            }
-            
-        } else {
-            return FALSE;
-        }
-    }
 }
