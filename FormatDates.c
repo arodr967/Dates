@@ -22,11 +22,30 @@
 #include <stdlib.h>
 
 /* String array of the months for printing. */
-char *theMonths = {"NIL", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+char *theMonths[] = {"NIL", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
 int main(int argc, char *argv[])
 {
+    int day, month, year, buffer;
+    FILE *fptr;
     
+    printf("\nThe valid formatted dates...\n\n");
+    
+    /* Print to the output file. */
+    while(scanf("%d/%d/%d", &day, &month, &year) == 3) {
+        printf("%d %s %d\n", day, theMonths[month], year);
+    }
+    
+    printf("\nOpening the file...\n\n");
+    if((fptr = fopen("dates.dat", "r")) != NULL)
+    {
+        while((buffer = getc(fptr)) != EOF) {
+            printf("%c", buffer);
+        }
+    }
+    
+    printf("\n\nClosing the file...\n\n");
+    fclose(fptr);
     
     return 0;
 }
