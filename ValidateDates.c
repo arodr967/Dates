@@ -38,7 +38,7 @@ enum months = {JAN = 1, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC}:
 /* Prototypes */
 int getLine(char s[], int limit);
 int validate(int month, int day, int year);
-void getDate(int month, int day, int year)
+void getDate(int month, int day, int year);
 
 int main(int argc, char *argv[])
 {
@@ -63,13 +63,12 @@ int main(int argc, char *argv[])
                 getDate(month, day, year);
                 input--; /* Decrement the input */
             }
-            
         }
     }
-    
     return 0;
 }
 
+/* getDate function: gets the dates and validates them. */
 void getDate(int month, int day, int year)
 {
     if(scanf("%d %d %d", &month, &day, &year) == 3)
@@ -103,9 +102,38 @@ int getLine(char s[], int limit)
     return i;
 }
 
+
+/* validate function: validate the date. */
 int validate(int month, int day, int year)
 {
-    int leap;
+    int leapYear = ((year%4 == 0 && year % 100 != 0) || year % 400 == 0); /* test for leap year */
     
-    if((month >= 1 && month <= 12) )
+    if(month >= 1 && month <= 12)
+    {
+        if(date >= 1 && date <= 31)
+        {
+            if(month == JAN || month == MAR || month == MAY || month == JUL || month == AUG || month == OCT || month == DEC)
+            {
+                return TRUE;
+            }
+        }
+        else if(date >= 1 && date <= 30)
+        {
+            if(month == APR || month = JUN || month == SEP || month == NOV)
+            {
+                return TRUE;
+            }
+        }
+        
+        else if((date >= 1 && date <= 28 && !leapYear) || (date >= 1 && date <= 29 && leapYear))
+        {
+            if(month == FEB)
+            {
+                return TRUE;
+            }
+            
+        } else {
+            return FALSE;
+        }
+    }
 }
