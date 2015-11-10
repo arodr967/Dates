@@ -6,7 +6,7 @@ _"A C program which generates an output file that contains a list of dates in da
 -------
 
 - This program includes 2 different programs and a dates.dat file.
-__NOTE__: There is no header file. This is due to the minimal amount of information needed for a header file.
+- __NOTE__: There is no header file. This is due to the minimal amount of information needed for a header file.
 
 __Program 1__: Accept input for the first program via the command-line arguments. Input will be the number of valid entries to be redirected from the dates input file (dates.dat). A zero indicates to input all entries from the dates input file. This input will then be piped out to the second program. The program will handle corrupt dates in the dates.dat file.
 
