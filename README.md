@@ -36,7 +36,7 @@ __gcc FormatDates.c -o main2__
 
 Please use the following to execute the program successfully:
 
-__./main input < dates.dat | ./main2 > output.dat__
+__./main1 input < dates.dat | ./main2 > output.dat__
 
 The input should be a number. If the input is less than or equal to 0, then it will read the entire dates.dat file. If the input is, for example, 3, then it will output the first 3 valid dates in the output.dat file.
 
