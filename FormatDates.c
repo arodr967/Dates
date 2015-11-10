@@ -21,6 +21,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* String array of the months for printing. */
+char *theMonths = {"NIL", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
 int main(int argc, char *argv[])
 {
