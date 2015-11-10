@@ -15,6 +15,7 @@
     and none of it is the work of any other person or entity.
  
  Created by Alicia Rodriguez.
+ Panther ID: 5162522
  
  */
 
@@ -24,10 +25,12 @@
 /* String array of the months for printing. */
 char *theMonths[] = {"NIL", "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
 
+/* main function: print to the output.dat file and valid formatted dates
+   and open the dates.dat file */
 int main(int argc, char *argv[])
 {
     int day, month, year, buffer;
-    FILE *fptr;
+    FILE *fptr; /* Create the file pointer */
     
     printf("\nThe valid formatted dates...\n\n");
     
@@ -36,7 +39,7 @@ int main(int argc, char *argv[])
         printf("%d %s %d\n", day, theMonths[month], year);
     }
     
-    printf("\nOpening the file...\n\n");
+    printf("\nOpening the original file...\n\n");
     if((fptr = fopen("dates.dat", "r")) != NULL)
     {
         while((buffer = getc(fptr)) != EOF) {
